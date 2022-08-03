@@ -1,0 +1,21 @@
+{
+    "deduction":{
+        "__doc__":"Configuration for Deduction Status",
+        "train_script" : "train.py",
+        "eval_script" : "evaluate_model.py",
+        "train_data_prep_script": "data_preparation.py",
+        "data_prep_datasets":{"dataset":"dummy_data"},
+        "model_name" : "deduction_model",
+        "hyperparameters":{            
+            "n_estimators":1000
+        },
+        "datastore_name":"workspaceworkingdirectory",
+        "infer_datastore_name":"workspaceworkingdirectory",
+        "train_dataset_name" : "dataset_name",
+        "model_output_dir" : "./outputs",
+        "train_pipeline_name" : "classification_pipeline",
+        "train_compute_name" : "deduction-cluster001",
+        "environment_path" : "mlops/configuration/environment/deduction_classification",
+        "version" :"1.0"
+    }
+}

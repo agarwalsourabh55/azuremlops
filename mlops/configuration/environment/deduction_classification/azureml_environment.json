@@ -1,0 +1,45 @@
+{
+    "name": "MLOPS_ENV",
+    "version": "38",
+    "environmentVariables": {
+        "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE"
+    },
+    "python": {
+        "userManagedDependencies": false,
+        "interpreterPath": "python",
+        "condaDependenciesFile": "conda_dependencies.yml",
+        "baseCondaEnvironment": null
+    },
+    "docker": {
+        "enabled": false,
+        "baseImage": "mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:20220616.v1",
+        "baseDockerfile": null,
+        "sharedVolumes": true,
+        "shmSize": null,
+        "arguments": [],
+        "baseImageRegistry": {
+            "address": null,
+            "username": null,
+            "password": null,
+            "registryIdentity": null
+        },
+        "platform": {
+            "os": "Linux",
+            "architecture": "amd64"
+        }
+    },
+    "spark": {
+        "repositories": [],
+        "packages": [],
+        "precachePackages": true
+    },
+    "databricks": {
+        "mavenLibraries": [],
+        "pypiLibraries": [],
+        "rcranLibraries": [],
+        "jarLibraries": [],
+        "eggLibraries": []
+    },
+    "r": null,
+    "inferencingStackVersion": null
+}
