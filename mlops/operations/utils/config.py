@@ -1,6 +1,3 @@
-# Copyright (c) Microsoft Corporation. All rights reserved.
-# Licensed under the MIT License.
-
 import importlib
 import yaml
 import inspect
@@ -9,6 +6,48 @@ from pathlib import Path
 import os
 from azureml.core import Datastore
 import json
+
+def get_env_var(name):  # TODO read variables from files in local executions
+    """Get value from environment variable.
+       Raises informative message if not set.
+
+    Args:
+        name (str): the name of the environment variable
+
+    Returns:
+        str: The value of the environment variable
+
+    """
+    var = None
+    try:
+        var = os.environ[name]
+    except KeyError:
+        print(f"Environment variable '{name}' is not defined. Loading in the local yml file.")
+        try:
+            var = retrieve_config()[name]
+        except Exception:
+            print(f"Environment variable '{name}' is not defined in local yml file.")
+    if var is None:
+        print(f"Some error happens while loading variable {name}")
+    return var
+
+
+def retrieve_config():  # TODO: is this being used?
+    """Retrieve configuration data.
+
+    Args:
+        None
+
+    Returns:
+        dict: The dictionary with configuration settings
+
+    """
+    config = {}
+    # go 2 layer up
+    util_path = Path(__file__).parents[3]
+    config_path = util_path / 'configuration' / 'configuration-aml.variables.yml'
+    config = read_config_file(config_path)
+    return config['variables']
 
 
 def read_config_file(config_file_path):

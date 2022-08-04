@@ -13,12 +13,14 @@ def main(model_name, datastore_name,train_script, eval_script, data_prep_script,
     # Connect to configured Workspace
     ws = workspace.retrieve_workspace()
 
+    print(ws)
     # Define Compute Target
     compute_target = compute.get_compute_target(ws, compute_name, config_file_path = f"{environment_path}/compute.yml")
-
+    print("Compute Target DOne")
     # Load Environemnt Configuration (Alternative is pre-existing ENV)
     env = Environment.load_from_directory(path=environment_path)
-
+    
+    print("loaded environment")
     ## Initialise Run configuration object
     run_config = RunConfiguration()
     run_config.environment = env
@@ -35,7 +37,7 @@ def main(model_name, datastore_name,train_script, eval_script, data_prep_script,
             script_name=data_prep_script,
             compute_target=compute_target,
             arguments=[
-                '--model_name', model_name
+                '--model_name', model_name,
             ],
             runconfig=run_config,
             allow_reuse=False
@@ -46,11 +48,11 @@ def main(model_name, datastore_name,train_script, eval_script, data_prep_script,
         source_directory="mlops/src",
         script_name=train_script,
         compute_target=compute_target,
-        outputs = [pipeline_data],
         arguments=[
             '--model_name', model_name, 
             '--output_dir', pipeline_data
         ],
+        outputs = [pipeline_data],
         runconfig=run_config,
         allow_reuse=False
     )

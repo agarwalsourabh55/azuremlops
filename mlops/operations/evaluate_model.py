@@ -26,6 +26,7 @@ def main(model_name):
 
 def is_new_model_better(run, old_model):
     metrics_new_model = run.get_metrics()
+    print(metrics_new_model)
     metrics_old_model = old_model.tags
     # Compare Models Here
     # TODO

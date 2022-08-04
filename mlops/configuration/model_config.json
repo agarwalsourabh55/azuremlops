@@ -4,13 +4,13 @@
         "train_script" : "train.py",
         "eval_script" : "evaluate_model.py",
         "train_data_prep_script": "data_preparation.py",
-        "data_prep_datasets":{"dataset":"dummy_data"},
+        "data_prep_datasets":{"dataset":"diabetes_data"},
         "model_name" : "deduction_model",
         "hyperparameters":{            
             "n_estimators":1000
         },
-        "datastore_name":"workspaceworkingdirectory",
-        "infer_datastore_name":"workspaceworkingdirectory",
+        "datastore_name":"workspaceblobstore",
+        "infer_datastore_name":"workspaceblobstore",
         "train_dataset_name" : "dataset_name",
         "model_output_dir" : "./outputs",
         "train_pipeline_name" : "classification_pipeline",

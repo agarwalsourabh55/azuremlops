@@ -35,7 +35,4 @@ dependencies:
       - azureml-mlflow==1.42.0
       - azureml-telemetry==1.42.0
       - scikit-learn==1.0.0
-      - lightfm==1.16
-      - spacy-universal-sentence-encoder==0.4.3
-      - lightfm-dataset-helper==0.1.2
-      - pandasql==0.7.3
+      - matplotlib

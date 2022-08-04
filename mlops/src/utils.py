@@ -66,7 +66,6 @@ def get_dataset(ws, filename=None, path_datastore=None):
 
     """
     df = None
-
     # get the data when run by external scripts
     try:
         run = Run.get_context()
